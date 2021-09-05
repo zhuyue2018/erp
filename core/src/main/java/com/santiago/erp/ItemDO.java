@@ -1,28 +1,27 @@
 package com.santiago.erp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "item") // This tells Hibernate to make a table out of this class
 public class ItemDO {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Integer id;
-
+  @Column(nullable = false)
   private String name;
-
+  @Column(nullable = false)
   private Long createAt;
 
   private Long updateAt;
 
   private String type;
 
+  @Column(length = 511)
   private String tag;
 
   private String position;
   private String brand;
+  @Column(length = 511)
   private String description;
 
   public Integer getId() {
